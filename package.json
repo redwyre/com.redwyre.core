@@ -1,0 +1,22 @@
+{
+  "name": "com.redwyre.core",
+  "version": "1.0.0",
+  "displayName": "redwyre Core",
+  "description": "redwyre Core library",
+  "unity": "2022.2",
+  "documentationUrl": "https://example.com/",
+  "changelogUrl": "https://example.com/changelog.html",
+  "licensesUrl": "https://example.com/licensing.html",
+  "dependencies": {
+    "com.unity.editorcoroutines": "1.0.0"
+  },
+  "keywords": [
+    "redwyre",
+    "core"
+  ],
+  "author": {
+    "name": "Simon Stevenson",
+    "email": "redwyre@redwyre.com",
+    "url": "https://www.redwyre.com"
+  }
+}
