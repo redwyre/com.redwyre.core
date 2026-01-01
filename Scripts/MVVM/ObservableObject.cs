@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.Properties;
 using UnityEngine.UIElements;
 
 #nullable enable
@@ -12,6 +13,11 @@ namespace redwyre.Core.MVVM
     /// </summary>
     public class ObservableObject : INotifyBindablePropertyChanged
     {
+        /// <summary>
+        /// A way to allow binding to the data source itself.
+        /// </summary>
+        [CreateProperty] public System.Object Self => this;
+
         public event EventHandler<BindablePropertyChangedEventArgs>? propertyChanged;
 
         public void SetProperty<T>(ref T value, T newValue, [CallerMemberName] string propertyName = "")

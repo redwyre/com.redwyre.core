@@ -1,7 +1,10 @@
 using System;
 using System.Windows.Input;
 using Unity.Properties;
+using UnityEngine;
 using UnityEngine.UIElements;
+
+[assembly: MakeSerializable(typeof(object))]
 
 #nullable enable
 
@@ -18,7 +21,7 @@ namespace redwyre.Core.MVVM
 
         // Unity does not currently allow for nullability annotations on UxmlAttribute properties (6000.0.47)
 #nullable disable
-        [UxmlObjectReference(types = new System.Type[0])]
+        [UxmlObjectReference(types = new System.Type[] { })]
         [CreateProperty]
         public ICommand Command
         {
@@ -42,6 +45,12 @@ namespace redwyre.Core.MVVM
                 OnCanExecuteChanged(null, EventArgs.Empty);
             }
         }
+
+        //[UxmlObjectReference(types = new[] { typeof(object) })]
+
+        [UxmlAttribute]
+        [CreateProperty]
+        public object CommandParameter { get; set; }
 #nullable enable
 
         public CommandButton()
@@ -51,15 +60,15 @@ namespace redwyre.Core.MVVM
 
         private void OnClick(ClickEvent evt)
         {
-            if (Command != null && Command.CanExecute(null))
+            if (Command != null && Command.CanExecute(CommandParameter))
             {
-                Command.Execute(null);
+                Command.Execute(CommandParameter);
             }
         }
 
-        private void OnCanExecuteChanged(object sender, EventArgs eventArgs)
+        private void OnCanExecuteChanged(object? sender, EventArgs eventArgs)
         {
-            SetEnabled(Command?.CanExecute(null) ?? true);
+            SetEnabled(Command?.CanExecute(CommandParameter) ?? true);
         }
     }
 }

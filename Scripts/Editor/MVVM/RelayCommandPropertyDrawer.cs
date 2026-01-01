@@ -1,9 +1,8 @@
 using UnityEditor;
 using UnityEngine.UIElements;
+using redwyre.Core.MVVM;
 
-#nullable enable
-
-namespace redwyre.Core.MVVM
+namespace redwyre.Core.Editor.MVVM
 {
     /// <summary>
     /// RelayCommandPropertyDrawer is a custom property drawer for the 
