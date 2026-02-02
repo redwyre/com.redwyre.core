@@ -19,4 +19,13 @@ public class Nullable
     {
         return string.IsNullOrWhiteSpace(value);
     }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static void AssertNotNull<T>([NotNull] T? value, string paramName) where T : class
+    {
+        if (value == null)
+        {
+            throw new ArgumentNullException(paramName);
+        }
+    }
 }

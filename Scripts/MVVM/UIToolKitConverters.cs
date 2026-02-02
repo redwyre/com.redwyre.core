@@ -1,5 +1,5 @@
 using Unity.Properties;
-using UnityEditor;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace redwyre.Core.MVVM
@@ -7,9 +7,9 @@ namespace redwyre.Core.MVVM
     public static class UIToolKitConverters
     {
 #if UNITY_EDITOR
-        [InitializeOnLoadMethod]
+        [UnityEditor.InitializeOnLoadMethod]
 #else
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
 #endif
         public static void RegisterConverters()
         {

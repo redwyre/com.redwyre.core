@@ -13,6 +13,8 @@ namespace redwyre.Core.MVVM
     {
         public event EventHandler? CanExecuteChanged;
 
+        public static RelayCommand Empty => new RelayCommand(static _ => { });
+
         public Action<object?> ExecuteAction { get; set; }
         public Func<object?, bool>? CanExecuteFunc { get; set; }
 
